@@ -57,9 +57,9 @@ export class ConfigLoader {
         // Validate WebSocket URL
         if (
             !config.websocketUrl.startsWith('wss://') &&
-            !config.httpRpcUrl.startsWith('ws://')
+            !config.websocketUrl.startsWith('ws://')
         ) {
-            throw new Error('WEBSOCKET_URL must start with wss://');
+            throw new Error('WEBSOCKET_URL must start with wss:// or ws://');
         }
 
         // Validate HTTP RPC URL
