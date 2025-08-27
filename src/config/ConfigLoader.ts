@@ -55,7 +55,10 @@ export class ConfigLoader {
 
     private static validateConfig(config: BlockReactionConfig): void {
         // Validate WebSocket URL
-        if (!config.websocketUrl.startsWith('wss://')) {
+        if (
+            !config.websocketUrl.startsWith('wss://') &&
+            !config.httpRpcUrl.startsWith('ws://')
+        ) {
             throw new Error('WEBSOCKET_URL must start with wss://');
         }
 
