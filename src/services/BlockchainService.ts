@@ -40,6 +40,7 @@ export class BlockchainService {
         this.config = config;
         this.provider = new ethers.JsonRpcProvider(config.httpRpcUrl);
         this.wallet = new ethers.Wallet(config.privateKey, this.provider);
+        console.log(`Wallet address: ${this.wallet.address}`);
     }
 
     public async start(): Promise<void> {
